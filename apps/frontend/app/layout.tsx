@@ -20,7 +20,6 @@ export default function RootLayout({
         className=""
       >
        <Header/>
-       <Hero/>
         {children}
         <Footer/>
       </body>
