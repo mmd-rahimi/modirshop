@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Hero = () => {
     return (
       <section className="hero-section">
@@ -9,7 +11,7 @@ const Hero = () => {
                 بهترین محصولات را با قیمتی باور نکردنی خریداری کنید. همین حالا مجموعه‌ای از کالاهای
                 متنوع را بررسی کرده و تجربه خریدی متفاوت را احساس کنید.
               </p>
-              <a href="/products" className="btn-primary">مشاهده محصولات</a>
+              <Link href="/products" className="btn-primary">مشاهده محصولات</Link>
             </div>
             <div className="image-wrapper">
               <img src="/images/3.jpg" alt="محصولات فروشگاهی" />
