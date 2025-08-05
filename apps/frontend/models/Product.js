@@ -5,6 +5,6 @@ const ProductSchema = new mongoose.Schema({
   price: String,
   image: String,
   description: String
-});
+}, {timestamps: true});
 
 export default mongoose.models.Product || mongoose.model("Product", ProductSchema);

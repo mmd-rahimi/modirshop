@@ -7,7 +7,7 @@ function ProductList({products}: IProductList) {
     <div className='products-grid'>
         {
             products.length > 0 && 
-            products.map((product) => <ProductCard product = {product} key = {product.id} />)
+            products.map((product) => <ProductCard product = {product} key = {product._id} />)
         }
     </div>
   )
