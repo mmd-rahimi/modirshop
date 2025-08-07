@@ -1,10 +1,14 @@
 import LatestProducts from '@/components/LatestProducts'
 import React from 'react'
 
-function page() {
+export interface ICategoryProps {
+  searchParams: Record<string, string | string[] | undefined>;
+}
+
+function page({searchParams}: ICategoryProps) {
   return (
     <>
-    <LatestProducts />
+    <LatestProducts searchParams={searchParams}/>
     </>
   )
 }

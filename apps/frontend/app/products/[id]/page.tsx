@@ -1,4 +1,5 @@
 import { enTofa } from "@/utils/Utilities";
+import Link from "next/link";
 import React from "react";
 
 
@@ -21,9 +22,13 @@ async function page({ params }: IProductDetailsProps) {
         <div className="new-product-image">
           <img src={product?.image} alt={product?.title} />
         </div>
-        {/* title & des */}
+        {/* title & des & category */}
         <div className="new-product-info">
           <h1 className="new-product-title">{product?.title}</h1>
+          <span>دسته بندی: </span>
+          <Link href={`/products?category=${product.category}`}>{product?.category}</Link>
+          <br />
+          <br />
           <p className="new-product-description">{product?.description}</p>
           {/* price & button */}
           <div className="product-price-row">
