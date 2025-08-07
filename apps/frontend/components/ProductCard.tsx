@@ -1,10 +1,16 @@
+"use client"
+
 import Image from "next/image";
 import React from "react";
 import { IProduct } from "./LatestProducts";
 import { enTofa } from "@/utils/Utilities";
 import Link from "next/link";
+import { useCartContext } from "@/contexts/CartContext";
 
 function ProductCard({ product }: { product: IProduct }) {
+
+  const {addToCart} = useCartContext()
+
   return (
     <div className="product-wrapper">
       <Link href={`/products/${product?._id}`} className="product-image-box">
@@ -21,7 +27,7 @@ function ProductCard({ product }: { product: IProduct }) {
           <div className="product-title">{product.title}</div>
         </Link>
         <div className="product-price-row">
-          <button className="product-button">افزودن</button>
+          <button onClick={() => addToCart(product)} className="product-button">افزودن</button>
           <span className="product-price">{enTofa(product.price)}</span>
         </div>
       </div>

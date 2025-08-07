@@ -3,10 +3,11 @@ import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Vazirmatn } from "next/font/google";
+import ClientLayout from "@/components/ClientLayout";
 
 const vazir = Vazirmatn({
   subsets: ["arabic"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -22,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="fa">
       <body className={vazir.className}>
-        <Header />
-        {children}
-        <Footer />
+        <ClientLayout>
+          <Header />
+          {children}
+          <Footer />
+        </ClientLayout>
       </body>
     </html>
   );
