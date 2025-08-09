@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 export interface ICartItem {
   _id: number;
@@ -31,6 +31,22 @@ export const useCartContext = () => {
 
 function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<ICartItem[]>([]);
+
+useEffect(() => {
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    try {
+      const parsedCart = JSON.parse(storedCart);
+      setCart(parsedCart);
+    } catch (error) {
+      console.error("Invalid cart data in localStorage", error);
+    }
+  }
+}, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
 
   const addToCart = (product: ProductType) => {
     setCart((prev) => {

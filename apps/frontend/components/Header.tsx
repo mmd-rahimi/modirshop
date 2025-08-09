@@ -1,11 +1,15 @@
 "use client";
 
+import { useCartContext } from "@/contexts/CartContext";
+import { enTofa } from "@/utils/Utilities";
 import { AlignJustify } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
 function Header() {
   const [isActiveMobile, setIsActiveMobile] = useState<boolean>(false);
+
+  const {cart} = useCartContext()
 
   return (
     <header className="header">
@@ -22,7 +26,8 @@ function Header() {
           </Link>
           <Link className="nav-link" href={"/cart"}>
             سبد خرید
-          </Link>
+          </Link> 
+          {cart.length > 0 ? <span className="nav-link">{enTofa(cart.length)}</span> : ""}
         </nav>
         <button className="nav-button" onClick={() => setIsActiveMobile((prev) => !prev)}><AlignJustify /></button>
       </div>
