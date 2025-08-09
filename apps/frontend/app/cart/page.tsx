@@ -124,6 +124,7 @@ function Cart() {
             <input
               value={userInfo.name}
               onChange={handleChange}
+              required
               name="name"
               type="text"
               className="cart-input"
@@ -132,6 +133,7 @@ function Cart() {
             <input
               value={userInfo.email}
               onChange={handleChange}
+              required
               name="email"
               type="text"
               className="cart-input"
@@ -140,6 +142,7 @@ function Cart() {
             <input
               value={userInfo.country}
               onChange={handleChange}
+              required
               name="country"
               type="text"
               className="cart-input"
@@ -148,6 +151,7 @@ function Cart() {
             <input
               value={userInfo.city}
               onChange={handleChange}
+              required
               name="city"
               type="text"
               className="cart-input"
@@ -156,6 +160,7 @@ function Cart() {
             <input
               value={userInfo.address}
               onChange={handleChange}
+              required
               name="address"
               type="text"
               className="cart-input"
