@@ -29,9 +29,9 @@ async function Products() {
           {products.map((product) => (
             <tr key={product._id}>
               <td>{product.title}</td>
-              <td>
-                <Edit size={30}/>
-                <Trash size={30}/>
+              <td className="flex flex-row">
+                <Edit size={35}/>
+                <Trash size={35}/>
               </td>
             </tr>
           ))}
