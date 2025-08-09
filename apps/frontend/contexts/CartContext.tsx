@@ -18,6 +18,7 @@ export interface ICartContext {
   removeFromCart: (productId: string | number) => void;
   updateQuantity: (productId: string | number, newQuantity: number) => void;
   getTotal: () => number;
+  clearCart: () => void
 }
 
 export const CartContext = createContext<ICartContext | null>(null);
@@ -82,9 +83,13 @@ useEffect(() => {
     return total;
   }
 
+  function clearCart () {
+    setCart([])
+  }
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity, getTotal }}
+      value={{ cart, addToCart, removeFromCart, updateQuantity, getTotal, clearCart }}
     >
       {children}
     </CartContext.Provider>
