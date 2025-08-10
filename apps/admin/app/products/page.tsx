@@ -1,4 +1,4 @@
-import { Edit, Trash } from "lucide-react";
+import { Edit, Link, Trash } from "lucide-react";
 import React from "react";
 
 export interface IProduct {
@@ -17,7 +17,10 @@ async function Products() {
   return (
     <div>
       <h1>Product page</h1>
+      
+      <Link href="/products/new">
       <button>Add new product</button>
+      </Link>
       <table>
         <thead>
           <tr>
