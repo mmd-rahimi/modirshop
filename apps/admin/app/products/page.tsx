@@ -1,4 +1,5 @@
-import { Edit, Link, Trash } from "lucide-react";
+import { Edit, Trash } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export interface IProduct {
