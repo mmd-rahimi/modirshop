@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 export interface IEditProduct {
   title: string;
@@ -23,6 +23,15 @@ function EditProduct() {
         description: "",
         category: "لپتاپ",
       });
+
+      useEffect(() => {
+        async function fetchProduct() {
+            const res = await fetch(`http://localhost:3001/api/products/${id}`);
+            const data = await res.json();
+            setFormData(data.product)
+        }
+        fetchProduct()
+      }, [])
 
         const handleChange = (
           e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -48,29 +57,33 @@ function EditProduct() {
         <h1>Edit product</h1>
       <form onSubmit={handleSubmit}>
         <input
-          onChange={handleChange}
+          onChange={handleChange} 
+          value={formData.title}
           type="text"
           name="title"
           placeholder="title"
         />
         <input
-          onChange={handleChange}
+          onChange={handleChange} 
+          value={formData.price}
           type="number"
           name="price"
           placeholder="price"
         />
         <input
           onChange={handleChange}
+          value={formData.image} 
           type="text"
           name="image"
           placeholder="image url"
         />
         <textarea
           onChange={handleChange}
+          value={formData.description} 
           name="description"
           placeholder="description"
         ></textarea>
-        <select onChange={handleChange} name="category">
+        <select onChange={handleChange} value={formData.category} name="category">
           <option value="لپتاپ">لپتاپ</option>
           <option value="موبایل">موبایل</option>
           <option value="تبلت">تبلت</option>
