@@ -34,8 +34,12 @@ async function Products() {
             <tr key={product._id}>
               <td>{product.title}</td>
               <td className="flex flex-row">
+                <Link href={`/products/edit/${product._id}`}>
                 <Edit size={35}/>
+                </Link>
+                <Link href={`/products/delete/${product._id}`}>
                 <Trash size={35}/>
+                </Link>
               </td>
             </tr>
           ))}
