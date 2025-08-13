@@ -12,7 +12,7 @@ export interface IProduct {
 }
 
 async function Products() {
-  const res = await fetch("http://localhost:3000/api/products");
+  const res = await fetch("http://localhost:3001/api/products");
   const products: IProduct[] = await res.json();
 
   return (
