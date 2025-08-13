@@ -1,3 +1,4 @@
+import AddToCartButton from "@/components/AddToCartButton";
 import { enTofa } from "@/utils/Utilities";
 import Link from "next/link";
 import React from "react";
@@ -33,7 +34,7 @@ async function page({ params }: IProductDetailsProps) {
           {/* price & button */}
           <div className="product-price-row">
             <div className="product-price">{enTofa(product?.price)}</div>
-            <button className="product-button">افزودن به سبد خرید</button>
+            <AddToCartButton product={product} />
           </div>
         </div>
       </div>
