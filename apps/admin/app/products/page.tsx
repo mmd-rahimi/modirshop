@@ -1,52 +1,14 @@
-import { Edit, Trash } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import { IProduct } from "@/types/types";
+import ProductsTable from "@/components/ProductsTable";
 
-export interface IProduct {
-  _id: number;
-  title: string;
-  price: string;
-  image: string;
-  description?: string;
-  category?: string;
+async function getProducts(): Promise<IProduct[]> {
+  const res = await fetch("http://localhost:3001/api/products", {
+    cache: "no-store",
+  });
+  return res.json();
 }
 
-async function Products() {
-  const res = await fetch("http://localhost:3001/api/products");
-  const products: IProduct[] = await res.json();
-
-  return (
-    <div>
-      <h1>Product page</h1>
-      
-      <Link href="/products/new">
-      <button>Add new product</button>
-      </Link>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => (
-            <tr key={product._id}>
-              <td>{product.title}</td>
-              <td className="flex flex-row">
-                <Link href={`/products/edit/${product._id}`}>
-                <Edit size={35}/>
-                </Link>
-                <Link href={`/products/delete/${product._id}`}>
-                <Trash size={35}/>
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+export default async function Products() {
+  const products = await getProducts();
+  return <ProductsTable products={products} />;
 }
-
-export default Products;

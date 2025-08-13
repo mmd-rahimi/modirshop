@@ -54,8 +54,8 @@ function EditProduct() {
 
   return (
     <div>
-        <h1>Edit product</h1>
-      <form onSubmit={handleSubmit}>
+        <h1 className="text-2xl font-bold">Edit product</h1>
+      <form className="mt-4" onSubmit={handleSubmit}>
         <input
           onChange={handleChange} 
           value={formData.title}

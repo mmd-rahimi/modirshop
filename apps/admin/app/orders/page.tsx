@@ -28,7 +28,9 @@ async function Orders() {
   const orders: Order[] = await res.json();
 
   return (
-    <table>
+    <div>
+      <h1 className="text-2xl font-bold">Orders page</h1>
+          <table>
       <thead>
         <tr>
           <th>نام کاربر</th>
@@ -57,6 +59,7 @@ async function Orders() {
         ))}
       </tbody>
     </table>
+    </div>
   );
 }
 
