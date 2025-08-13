@@ -2,7 +2,7 @@
 
 import { useCartContext } from "@/contexts/CartContext";
 import { enTofa } from "@/utils/Utilities";
-import { AlignJustify } from "lucide-react";
+import { AlignJustify, Home } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -14,8 +14,8 @@ function Header() {
   return (
     <header className="header">
       <div className="header-wrapper">
-        <Link className="logo" href="/">
-          <img src="/images/logo.jpg" alt="logo" />
+        <Link className="logo hover:scale-110 duration-100" href="/">
+          <Home color="white" size={28} />
         </Link>
         <nav className={`nav ${isActiveMobile ? "active" : ""}`}>
           <Link className="nav-link" href={"/"}>
