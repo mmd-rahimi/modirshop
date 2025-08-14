@@ -2,8 +2,6 @@
 
 Welcome to the **Next.js E-commerce Dashboard**, a modern, fast, and fully customizable admin dashboard for your e-commerce platform. This dashboard provides all the necessary tools to manage your online store efficiently, built using the latest version of Next.js.
 
-![Dashboard Screenshot](https://drive.google.com/uc?id=1lrBvZ04PoE-0x-WrgjCFe_7QFu_l_lHK)  
-*Example of the dashboard's home page (Placeholder image)*
 
 ## 🌟 Features
 
