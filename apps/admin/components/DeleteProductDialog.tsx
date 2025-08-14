@@ -20,7 +20,7 @@ export default function DeleteProductDialog({ id, open, onClose }: Props) {
     });
     if (res.ok) {
       onClose();
-      router.refresh(); // رفرش کردن لیست محصولات
+      router.refresh()
     }
     setLoading(false);
   };
